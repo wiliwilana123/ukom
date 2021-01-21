@@ -5,6 +5,8 @@
   $q_rs = mysqli_query($conn, "SELECT * FROM rumahsakit");
   $q_pasien = mysqli_query($conn, "SELECT * FROM pasien");
   $q_dokter = mysqli_query($conn, "SELECT * FROM dokter");
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,13 +37,6 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Medicio - v2.1.0
-  * Template URL: https://bootstrapmade.com/medicio-free-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -64,9 +59,6 @@
 
       <a href="index.html" class="logo mr-auto">Corona Update</a>
     
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <h1 class="logo mr-auto"><a href="index.html">Medicio</a></h1> -->
-
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <!-- <li class="active"><a href="index.html">Home</a></li> -->
@@ -75,24 +67,6 @@
           <li><a href="#departments">Daftar Pasien</a></li>
           <li><a href="#doctors">Daftar Dokter</a></li>
           <li><a href="#gallery">Multimedia</a></li>
-          <!-- <li class="drop-down"><a href="">Drop Down</a>
-          <ul>
-            <li><a href="#">Drop Down 1</a></li>
-            <li class="drop-down"><a href="#">Deep Drop Down</a>
-              <ul>
-                <li><a href="#">Deep Drop Down 1</a></li>
-                <li><a href="#">Deep Drop Down 2</a></li>
-                <li><a href="#">Deep Drop Down 3</a></li>
-                <li><a href="#">Deep Drop Down 4</a></li>
-                <li><a href="#">Deep Drop Down 5</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Drop Down 2</a></li>
-            <li><a href="#">Drop Down 3</a></li>
-            <li><a href="#">Drop Down 4</a></li>
-          </ul>
-        </li> -->
-          <!-- <li><a href="#contact">Contact</a></li> -->
 
         </ul>
       </nav><!-- .nav-menu -->
@@ -154,9 +128,6 @@
   </section><!-- End Hero -->
 
   <main id="main">
-
-   
-
     <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta">
       <div class="container" data-aos="zoom-in">
@@ -295,42 +266,20 @@
         </div>
 
         <div class="row">
+          <?php 
+            while ($row = mysqli_fetch_array($q_rs)) { 
+              
+          ?>
           <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon"><i class="icofont-heart-beat"></i></div>
-            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+            <h4 class="title"><a href=""><?php echo $row['nama_rs']; ?></a></h4>
             <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
           </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon"><i class="icofont-drug"></i></div>
-            <h4 class="title"><a href="">Dolor Sitema</a></h4>
-            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon"><i class="icofont-dna-alt-2"></i></div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon"><i class="icofont-heartbeat"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon"><i class="icofont-disabled"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon"><i class="icofont-autism"></i></div>
-            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-          </div>
+          <?php } ?>
         </div>
 
       </div>
     </section><!-- End Services Section -->
-
-    
 
     <!-- ======= Departments Section ======= -->
     <section id="departments" class="departments">
