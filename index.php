@@ -1,3 +1,11 @@
+<?php 
+  session_start();
+  $conn = mysqli_connect('localhost', 'root', '', 'covid');
+
+  $q_rs = mysqli_query($conn, "SELECT * FROM rumahsakit");
+  $q_pasien = mysqli_query($conn, "SELECT * FROM pasien");
+  $q_dokter = mysqli_query($conn, "SELECT * FROM dokter");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
