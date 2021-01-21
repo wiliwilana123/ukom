@@ -2,6 +2,7 @@
   session_start();
   include 'conn.php';
   $q_pasien = mysqli_query($conn, "SELECT * FROM pasien");
+  $q_pasien2 = mysqli_query($conn, "SELECT * FROM pasien");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,6 +33,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script type="text/javascript" src="assets/js/Chart.js"></script>
 
   <!-- =======================================================
   * Template Name: Medicio - v2.1.0
@@ -94,6 +96,57 @@
 
     <section class="inner-page">
       <div class="container">
+        <div style="width: 500px;height: 500px">
+          <canvas id="myChart"></canvas>
+        </div>
+        <?php 
+          $desa_all= "";
+          $umur_all=null;
+          while ($row = mysqli_fetch_array($q_pasien2)) { 
+            $desa=$row['desa_pasien'];
+            $desa_all .= "'$desa'". ", ";
+
+            $umur=$row['umur_pasien'];
+            $umur_all .= "'$umur'". ", ";
+
+          }
+        ?>
+        <script>
+          var ctx = document.getElementById("myChart").getContext('2d');
+          var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: [<?php echo $desa_all; ?>],
+              datasets: [{
+                label: 'Data Pasien',
+                data: [<?php echo $umur_all; ?>],
+                backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)'
+                ],
+                borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero:true
+                  }
+                }]
+              }
+            }
+          });
+        </script>
+
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
