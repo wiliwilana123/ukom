@@ -72,7 +72,7 @@
       </nav><!-- .nav-menu -->
 
       <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline"> </span> Laporkan</a>
-      <a href="inner-page.html" class="appointment-btn scrollto"><span class="d-none d-md-inline"> </span> Unduh Hasil Tes</a>
+      <a href="inner-page.php" class="appointment-btn scrollto"><span class="d-none d-md-inline"> </span> Unduh Hasil Tes</a>
 
     </div>
   </header><!-- End Header -->
