@@ -70,7 +70,7 @@
         </ul>
       </nav><!-- .nav-menu -->
 
-      <a href="index.html" class="appointment-btn scrollto"><span class="d-none d-md-inline"> </span> Kembali ke Home</a>
+      <a href="index.php" class="appointment-btn scrollto"><span class="d-none d-md-inline"> </span> Kembali ke Home</a>
      
     </div>
   </header><!-- End Header -->
