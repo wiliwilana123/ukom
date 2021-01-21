@@ -1,6 +1,6 @@
 <?php
   session_start();
-  $conn = mysqli_connect('localhost', 'root', '', 'covid');
+  include 'conn.php';
   $q_pasien = mysqli_query($conn, "SELECT * FROM pasien");
 ?>
 <!DOCTYPE html>

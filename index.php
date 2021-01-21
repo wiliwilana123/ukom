@@ -1,5 +1,6 @@
 <?php 
   session_start();
+  include 'conn.php';
   $conn = mysqli_connect('localhost', 'root', '', 'covid');
 
   $q_rs = mysqli_query($conn, "SELECT * FROM rumahsakit");

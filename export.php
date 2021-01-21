@@ -6,7 +6,7 @@
 	// $mpdf->Output();
   
   session_start();
-  $conn = mysqli_connect('localhost', 'root', '', 'covid');
+  include 'conn.php';
   $q_pasien = mysqli_query($conn, "SELECT * FROM pasien");
   
   $nama_dokumen='hasil_tes_covid';
